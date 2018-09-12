@@ -1,6 +1,6 @@
 # Senior Project
 It is called Make 4 You.
-Design your dream house on Web Application and calculate the prices and 
+Design your dream house on Web Application and calculate the prices and becoming the 3rd party for customer and subcontactor
 
 This project is non profitable, only just want to share what i've done under 6 months with JavaScript,
 Node.js and simple HTML/CSS for my final project.  
