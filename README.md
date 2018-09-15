@@ -64,4 +64,4 @@ To open this project. Please do the following instruction below.
      - contactor_id Datatype varchar
      
 5. Now open command line and get to where you place the folder.
-6. On cmd type this down to run the service sails lift
+6. On cmd type this down to run the service   -sails lift
