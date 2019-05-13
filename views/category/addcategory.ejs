@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+  <title>Add Category| Make4You </title>
+ 
+
+</head>
+
+<body>
+       <% if (error) { %>
+        <%= error %>
+       <%  } %>
+           <form method="POST" action="/category/add"> 
+           <input type="text" name="name"/>
+           <input type="submit" value="submit"/>
+					 </form>
+</body>
+
+</html>

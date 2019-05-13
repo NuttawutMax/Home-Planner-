@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Profile | Make4You</title>	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+				<div class="panel panel-info">
+	            		<div class="panel-heading">
+	              		<h3 class="panel-title">Profile Information : <%= users.username %></h3>
+	              		</div>
+					
+							<div class="panel-body">
+								<div class="row">
+									<div class=" col-md-9 col-lg-9 col-xs-4 "> 
+                  						<table class="table table-user-information">
+											<tbody>
+												<tr>
+												<td>Name :</td>
+												<td><%= users.first_name %></td>	
+												</tr>
+												<tr>
+												<td>LastName :</td>
+												<td><%= users.last_name %></td>
+												</tr>
+												<tr>
+												<td>Email :</td>
+												<td><%= users.email %></td>
+												</tr>
+												<tr>
+												<td>Password :</td>
+												<td><%= users.password %></td>	
+												</tr>
+												<td>Joined :</td>
+												<td><%= users.createdAt %></td>
+											</tbody>	
+										</table>
+										
+										<a href="user/edit?id=<%= users.id %>" class="btn btn-primary">Edit</a>
+										<a href="/diy" class="btn btn-primary">Back</a>
+									</div>
+								</div>
+							</div>
+				</div>				
+			</div>
+		</div>
+	</div>
+	 
+
+</body>
+
+</html>

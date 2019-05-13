@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jobs | Make4You</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<h1 class="display-4">JOBS LIST</h1>
+
+
+<table class="table table-striped" style="padding-left: 10px">
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>user_id</th>
+				<th>user_name</th>
+				<th>price</th>
+				<th>furnitures</th>
+				<th>width</th>
+				<th>height</th>	
+			</tr>
+		</thead>
+		<tbody>
+				<% for(var i=0; i<jobs.length; i++ ){ %>
+				<tr>
+					<td> <%= jobs[i].id %> </td>
+					<td> <%= jobs[i].user_id %> </td>
+					<td> <%= jobs[i].user_name %> </td>
+					<td> <%= jobs[i].price %> </td>
+					<td> <%= jobs[i].name %> </td>
+					<td> <%= jobs[i].width %> </td>
+					<td> <%= jobs[i].height %> </td>
+					<td><a class="d-line btn btn-danger" href="/job/delete?id=<%= jobs[i].id %>" style="font-size:12px">Delete</a></td>
+				</tr>
+				<% } %>
+
+		</tbody>
+	</table>
+</body>
+</html>

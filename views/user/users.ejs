@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User Management | Make4You</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<h1 class="display-4">Users</h1>
+<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>username</th>
+				<th>first_name</th>
+				<th>last_name</th>
+				<th>email</th>
+				<th>type</th>	
+			</tr>
+		</thead>
+		<tbody>
+				<% for(var i=0; i<users.length; i++ ){ %>
+				<tr>
+					<td> <%= users[i].username %> </td>
+					<td> <%= users[i].first_name %> </td>
+					<td> <%= users[i].last_name %> </td>
+					<td> <%= users[i].email %> </td>
+					<td> <%= users[i].type %> </td>
+					<td><a class="d-line btn btn-danger" href="user/delete?id=<%= users[i].id %>">Delete</a></td>
+				</tr>
+				<% } %>
+
+		</tbody>
+	</table>
+</body>
+</html>

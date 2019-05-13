@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Items | Make4You</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<h1 class="display-4">ITEMS LIST</h1>
+<a class ="btn btn-primary" href="/item/add">ADD ITEM</a>
+
+
+<table class="table table-striped" style="padding-left: 10px">
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>category_id</th>
+				<th>title</th>
+				<th>description</th>
+				<th>width</th>
+				<th>height</th>
+				<th>price</th>	
+			</tr>
+		</thead>
+		<tbody>
+				<% for(var i=0; i<items.length; i++ ){ %>
+				<tr>
+					<td> <%= items[i].id %> </td>
+					<td> <%= items[i].category_id %> </td>
+					<td> <%= items[i].title %> </td>
+					<td> <%= items[i].description %> </td>
+					<td> <%= items[i].width %> </td>
+					<td> <%= items[i].height %> </td>
+					<td> <%= items[i].price %> </td>
+					<td><a href="/item/edit?id=<%= items[i].id %>" class="d-inline btn btn-primary" style="font-size:12px">Edit</a></td>
+					<td><a href="/item/edit2?id=<%= items[i].id %>" class="d-inline btn btn-success" style="font-size:12px">Update Picture</a></td>
+					<td><a class="d-line btn btn-danger" href="/item/trash?id=<%= items[i].id %>" style="font-size:12px">Delete</a></td>
+				</tr>
+				<% } %>
+
+		</tbody>
+	</table>
+</body>
+</html>

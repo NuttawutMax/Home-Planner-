@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Profile | Make4You</title>	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="vertical-center">	
+	<div class="container">
+			<div class="col-lg-6 col-md-6 col-xs-6">
+				<form class="form-signin" method="post" action="login">
+				<h2 class="heading">Warmingly Welcome to Our Website</h2>
+				<% if (error) { %>
+        		<%= error %>
+       			<%  } %>
+				<input type="text" name="username" class="form-control" placeholder="Username"/>
+				<input type="password" name="password" class="form-control" placeholder="Password"/>
+				<input type="submit" class="button" value="login"/>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+
+</html>

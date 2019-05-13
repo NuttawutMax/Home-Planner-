@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Add Item | Make4You </title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<h1 class="">Add Item</h1>
+
+	<div class="form-group">
+	<% if (error) { %>
+        <%= error %>
+       <%  } %>
+	<form method="POST" action="/item/add">
+
+		<label for="title">Title :</label><input type="text" name="title" class="form-control" placeholder="Enter Title Here" />
+		<br>
+		
+		<span>Catagory :</span>
+		<select name="category_id">
+			<% for (var i=0; i<categories.length; i++){ %>
+				<option value="<%= categories[i].id %>"><%= categories[i].name %></option>
+			<% } %>
+		</select>
+		<br>
+		<br>
+		<label>Desciption :</label><input type="text" name="description" class="form-control" placeholder="Enter Desciption Here" />
+		<br>
+		<label>Width :</label><input type="text" name="width" class="form-control" placeholder="Enter Width Here" />
+		<br>
+		<label>Height :</label><input type="text" name="height" class="form-control" placeholder="Enter Height Here" />
+		<br>
+		<label>Price :</label><input type="text" name="price" class="form-control" placeholder="Enter Price Here" />
+		<br>
+		<label>Picture :</label><input type="file" name="picture_path"/>
+		<br>
+		<input type="submit" value="Submit"/> 
+
+	</form>
+			
+	</div>
+</body>
+</html>

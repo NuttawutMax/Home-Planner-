@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Upload Picture | Make4You</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+ <h1>UPLOAD PICTURE</h1>
+ <a class ="btn btn-primary" href="/diy">Home Page</a>
+ <a class ="btn btn-primary" href="/item">Back to item list</a>
+	<div class="form-group">
+		<p style="font-size: 30px">Store Picture</p>
+		 <form method="post" action="/item/upload?id=<%= items.id %>"  enctype="multipart/form-data">
+		   <label>Title : <%= items.title %> </label><br>
+		   <input type="file" name="picture_path" accept="image/*" onchange="loadFile(event)">
+		   <br>
+
+                                            <div class="item  col-ms-4 col-xs-4 col-lg-4">
+                                                <div class="thumbnail">
+                                                    <img class="group list-group-image" width="400" height="250" id="output"/>
+                                                    <div class="caption"> 
+                                                    <h4  class="group inner list-group-item-heading">IMPORTANT INFOMATION PLEASE READ BELOW
+                                                    </h4>
+                                                    <p class="group inner list-group-item-text">The Image will be shown in the DIY pages, the size of image need to be the 400 width and 250 height to keep the balance of the tab not to go out bounce.
+													
+                                                    </p>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            
+            
+		   <input type="submit" value="Upload"/>
+		   </form>
+		   
+		   <p style="font-size: 30px">Canvas Picture</p>
+		   <form method="post" action="/item/upload2?id=<%= items.id %>" enctype="multipart/form-data">
+		   <input type="file" name="anime_path" accept="image/*" onchange="loadFile2(event)"><br>
+		 
+		  
+			
+                                            <div class="item  col-ms-4 col-xs-4 col-lg-4">
+                                                <div class="thumbnail">
+                                                    <img class="group list-group-image" width="400" height="250" id="output2"/>
+                                                    <div class="caption"> 
+                                                    <h4  class="group inner list-group-item-heading">IMPORTANT INFOMATION PLEASE READ BELOW
+                                                    </h4>
+                                                    <p class="group inner list-group-item-text">The Image will be shown inside of the Canvas grid, the size of the image must not bigger than 500 width 600 height and not lower than 100 witdh 100 height to keep the Image Function produces the Canvas object. 
+                                                    </p>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+			
+			<input type="submit" value="Upload"/>
+		   </form>	
+		   
+	</div>	   
+
+<script>
+  var loadFile = function(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+      var output = document.getElementById('output');
+      output.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  };
+
+  var loadFile2 = function(event) {
+  	var reader = new FileReader();
+  	reader.onload = function(){
+  		var output = document.getElementById('output2');
+  		output.src = reader.result;
+  	};
+  	reader.readAsDataURL(event.target.files[0]);
+  };
+
+</script>
+</body>
+</html>

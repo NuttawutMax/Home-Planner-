@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Edit User | Make4You</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+	</head>
+	
+	
+	<body>
+	
+	<h1 class="">Edit Profile</h1>
+	<form method="post" action="/user/update?id=<%= users.id %>">	
+		<div class="form-group">
+			<label for="first_name">First Name</label>
+			<input type="text" name="first_name" class="form-control" value="<%= users.first_name %>">
+			<label for="last_name">Last Name</label>
+			<input type="text" name="last_name" class="form-control" value="<%= users.last_name %>">
+			<label for="email">Email</label>
+			<input type="text" name="email" class="form-control" value="<%= users.email %>">
+			
+		</div>
+
+		
+		<input type="submit" value="submit">
+	</form>
+	</body>
+</html>

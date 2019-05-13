@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Edit Item | Make4You</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+	</head>
+	
+	
+	<body>
+	
+
+	<h1 class="">EDIT ITEM</h1>
+
+
+	<form method="post" action="/item/update?id=<%= items.id %>" enctype="multipart/form-data">	
+		<div class="form-group">
+			<label for="title">Title</label>
+			<input type="text" name="title" class="form-control" value="<%= items.title %>">
+			<select name="category_id">
+			<% for (var i=0; i<categories.length; i++){ %>
+				<option value="<%= categories[i].id %>"><%= categories[i].name %></option>
+			<% } %>
+			</select>
+
+			<label for="description">Description</label>
+			<input type="text" name="description" class="form-control" value="<%= items.description %>">
+			<label for="width">Width</label>
+			<input type="text" name="width" class="form-control" value="<%= items.width %>">
+			<label for="height">Height</label>
+			<input type="text" name="height" class="form-control" value="<%= items.height %>">
+			<label for="price">Price</label>
+			<input type="price" name="price" class="form-control" value="<%= items.price %>">			
+		</div>
+
+		
+		<input class="btn btn-primary" type="submit" value="Submit">
+		<a class="btn btn-primary" href="/diy">Homepage</a>
+	</form>
+	</body>
+</html

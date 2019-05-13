@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  	
+   	<meta charset="utf-8">
+    <title>MAKE4YOU | DIY</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, charset=utf-8">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="lib2/vendor/bootstrap.css"/>
+    <script src="lib/all.js"></script>
+    <link rel="stylesheet" type="text/css" href="src/style.css" />
+    
+    
+       <script type="text/javascript">
+        function codeAddress() {
+            alert('This Page can be used on Edge, Chrome and IE 10+ Sorry for inconvenience <br> เว็บไซต์นี้สามารถใช้บน Edge, Chrome และ IE เวอร์ชั่น 10 ขึ้นไปเท่านั้น ขออภัยในความไม่สะดวก </br> ');
+        }
+        window.onload = codeAddress;
+        </script>
+
+    
+   
+</head>
+
+<body>
+
+ <nav class="navbar navbar-light " style="background: #6E6E6E " >
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar3">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><img src="logo/forthattp.png" width="250" height="120" class="d-inline-black align-top" alt="Make4You">
+        </a>
+      </div>
+      <div id="navbar3" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+          <% if(session.userid) { %>
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <% } else { %>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="/Register">Register</a></li>
+          <li><a href="/login">Login</a></li>
+          <% } %>
+          
+          <% if(session.usertype ) { %>
+          <li><a href="/item">Item Manager</a></li>
+          <li><a href="/category">Category Manager</a></li>
+          <li><a href="/user">User Manager</a></li>
+          <li><a href="/job/dojob">Job Manager</a></li>
+          <% } %>
+          
+          
+
+          <% if(session.userid) {%>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= users.username %><span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="/profile">profile</a></li>
+              <li><a href="/job/user">job</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li class="dropdown-header">Nav header</li>
+              <li><a href="#">Separated link</a></li>
+              <li><a href="/logout">logout</a></li>
+            </ul>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    <!--/.container-fluid -->
+  </nav>
+
+<br>
+<!-- Items -->
+   <div class="container-fluid">
+        <div class="row-fluid">
+            <div class=" col-lg-6 col-md-6 ">
+                <div class="cover-container"> 
+                    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo" style="font-size:25px;color:darkgreen">ITEMS<i class="material-icons" style="font-size:25px;color:greenyellow;">shopping</i></button>
+                    <div id="demo" class="collapse in width" style="background-color:aliceblue;">
+                        <div style="padding: 0; overflow: hidden;">
+                            <ul  class="nav nav-pills">
+                                
+                                <% for(var i=0; i<categories.length; i++){ %>
+                                    <li class="<% if(i==0){ %> active <% } %>">
+                                     <a  href="#<%= categories[i].id %>a" data-toggle="tab" style="font-size: 20px;color: black"><%= categories[i].name %></a>
+                                    </li>
+                                <% } %>
+                        	</ul>
+                            <div class="tab-content clearfix">
+                                <% for(var i=0; i<categories.length; i++){ %>
+                                    <div class="tab-pane <% if(i==0){ %> active <% } %>" id="<%= categories[i].id %>a">
+                                        <% for(var j=0; j<items.length; j++){ %>
+                                                <% if(items[j].category_id == categories[i].id){ %>
+                                            <div class="item  col-xs-4 col-lg-4">
+                                                <div class="thumbnail">
+                                                    <img class="group list-group-image items_img" src="/pic_items/<%= items[j].picture_path %>" data-title='/anime_items/<%= items[j].anime_path %>' data-target='<%= items[j].price %>' data-type="<%= items[j].type %>" data-name="<%= items[j].title %>" alt="Test"  />
+                                                    <div class="caption">
+                                                        <h4  class="group inner list-group-item-heading">
+                                                        <%= items[j].title %>   
+                                                        </h4>
+                                                        <p class="group inner list-group-item-text"> <%= items[j].description %> </p>
+                                                        <div class="row">
+                                                            <div class="col-xs-12 col-md-6">
+                                                                <p class="">Width <%= items[j].width %> CM</p>
+                                                                <p class="">Height <%= items[j].height %> CM</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <% } %>
+                                        <% } %>
+                                    </div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-xs-4 ">
+                <canvas id="c" width="780" height="720" style="border:1px solid #aaa"></canvas>
+                <p id="show">show my ass</p>
+                <button type="button"  id="ZoomIn" onclick="zoomIn();"></button>
+                <button type="button" id="ZoomOut" onclick="zoomOut();"></button>
+                <p class="btn btn-primary" onClick="deleteObject()" style="color:white;">Delete <i class="material-icons" style="color:white;">delete</i></p>
+                <button onclick="costing()" style="font-size: 25px; color: blue;">Cost<i class="material-icons" style="font-size:30px; color:blue;">euro_symbol</i></button> 
+                <p class="btn btn-primary" onclick="addRect2()">Add Floor</p>
+                <button onclick="imagechanger()">SUMMIT</button>
+                <button onclick="convertToImagen()">This hasn't been used</button>
+                <% if(session.userid) {%>
+                <form method="POST" action="/job">
+                <strong>Costs </strong>: <input type="text" name="price" id="cost"/>
+                <input type="text" name="user_name" value="<%= users.username %>"/>
+                <strong>furniture </strong>: <input type="text" name="name" id="name"/>
+                <strong>Width </strong>: <input type="text" name="width" id="wid" value="" /> 
+                <strong>Height</strong>: <input type="text" name="height" id="hei" vaule="" />
+                <strong>job_path</strong>: <input type="text" name="job_path" id="job_path"/>
+
+                <input type="submit" value="submit" onclick="whatisit()"/>
+                </form>
+                <% } %>
+                </div>
+                </form>
+        </div>
+    </div>
+
+   <script src="/src/main.js"></script>
+   <script>
+
+
+        var totalprice = 0;
+        var totalname = [];
+        var money = 0;
+        var deleteObj = false;
+        var totalfur = [];
+
+      
+        // var canvas = document.getElementById('c');
+        // var imgData = canvas.toDataURL();
+        function whatisit() {
+
+       var imgData = document.getElementById('c').toDataURL();
+
+        var data =document.getElementById('job_path').value = imgData;
+        console.log(imgData);
+        }
+
+         function deleteObject() {
+          
+          var bucketTemp = [];
+
+          for (i = 0; i < totalname.length; i += 1){
+              console.log(totalname[i].id,canvas.getActiveObject().id);
+              if(totalname[i].id != canvas.getActiveObject().id){
+                bucketTemp.push(totalname[i]);
+              }
+
+
+          }
+          totalname = bucketTemp;
+          canvas.getActiveObject().remove();
+
+           var price = $(this).attr('data-target');           
+                totalprice = 0;
+                totalfur = [];
+                for (i = 0; i < totalname.length; i += 1){
+                    totalprice = totalprice + parseInt(totalname[i].price);
+                    totalfur = totalfur + totalname[i].name; 
+                  }
+
+                 if (totalprice == 0) {
+                    $('#cost').val('');
+                 } else {
+                    $('#cost').val(parseInt(totalprice));
+                 }
+
+                  if (totalfur == ''){
+                   $('#name').val('');
+                 } else {
+                   $('#name').val(totalfur);
+                 }
+                 
+
+        }
+
+       $(document).ready(function(){
+            $('.items_img').click(function(){
+                var type = $(this).attr('data-type');
+                if(type == 'Floor'){
+                addRect2();
+          
+
+                }else{
+
+                var path = $(this).attr('data-title');
+                alert(path);
+                var id = Date.now().toString();
+                addImage(path, 500, 500, 0.5, -90, 3, id);
+
+                var name = $(this).attr('data-name');
+                totalname.push({id:id,price:$(this).attr('data-target'),name:$(this).attr('data-name')});
+                
+
+                // if (totalname == ''){
+
+                //   $('#name').val('');
+                // } else {
+                //   $('#name').val(totalname);
+                // }
+
+
+                var price = $(this).attr('data-target');           
+                totalprice = 0; 
+                totalfur = [];
+                for (i = 0; i < totalname.length; i += 1){
+                    totalprice = totalprice + parseInt(totalname[i].price);
+                    totalfur = totalfur + totalname[i].name;   
+                  }
+
+                 if (totalprice == 0) {
+                    $('#cost').val('');
+                 } else {
+                    $('#cost').val(parseInt(totalprice));
+                 }
+
+                 if (totalfur == ''){
+                   $('#name').val('');
+                 } else {
+                   $('#name').val(totalfur);
+                 }
+      
+
+              }  
+
+            })
+       });
+
+
+
+   
+   </script>
+</body>
+
+</html>

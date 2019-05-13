@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Edit Category | Make4You</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+	</head>
+	
+	
+	<body>
+	
+	<h1 class="">Edit Category</h1>
+	<form method="post" action="/category/update?id=<%= categories.id %>">	
+		<div class="form-group">
+			<label for="name">Name</label>
+			<input type="text" name="name" class="form-control" value="<%= categories.name %>">
+		</div>
+
+		
+		<input type="submit" value="submit">
+	</form>
+	</body>
+</html>
