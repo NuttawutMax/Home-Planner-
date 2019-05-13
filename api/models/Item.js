@@ -1,0 +1,34 @@
+module.exports = {
+	connection:'someMysqlServer',
+	tableName:'items',
+	attributes:{
+		title:{
+			type:'string'
+		},
+		category_id:{
+			type:'integer'
+		},
+		description:{
+			type:'string'
+		},
+		width:{
+			type:'string'
+		},
+		height:{
+			type:'string'
+		},
+		price:{
+			type:'integer'
+		},
+		type:{
+			type:'string'
+		},
+
+		picture_path:{
+			type:'string'
+		},
+		anime_path:{
+			type:'string'
+		}
+	}
+}
