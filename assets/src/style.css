@@ -1,0 +1,64 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+
+.navbar-header{
+	height: 150px;
+}
+
+.navbar-brand {
+	margin-left: 20px;
+	margin-bottom: 20px;
+	border: #D91F22;
+}
+
+.nav >li >a {
+  padding-top: 10px;
+  padding-bottom: 0px;
+  margin-right: 30px;
+  margin-top: 60px;
+  color: white;
+  font-size: 15px;
+}
+
+ .navbar-toggle {
+  padding: 20px;
+  margin: 25px 15px 25px 0;
+}
+
+
+/*
+#ZoomIn, #ZoomOut{
+    position:inherit;
+    z-index:150px;
+    left:10px;
+}
+*/
+
+#ZoomIn {
+    top:20px;
+    width:50px;
+    height:45px;
+    background:url(../resources/zoomicons.svg) -50px 0;
+}
+#ZoomOut {
+    top:70px;
+    width:50px;
+    height:45px;
+    background:url(../resources/zoomicons.svg) 0 0;
+}
+
+ #demo.width {
+    height: auto;
+    -webkit-transition: width 0.35s ease;
+    -moz-transition: width 0.35s ease;
+    -o-transition: width 0.35s ease;
+    transition: width 0.35s ease;
+}
+
+
+.cover-container {
+    height: 700px;
+    width: auto;
+    white-space:normal;
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
